@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('category', 'active')
+@section('post', 'active')
 @section('content')
 <div id="content-wrapper">
     <div class="container-fluid">
@@ -7,8 +7,8 @@
     <div class="card mb-3">
         <div class="card-header">
         <i class="fas fa-table"></i>
-        Tabel Category
-        <a href="{{route('category.create')}}" class="float-right btn btn-primary">Tambah</a>
+        Tabel Post
+        <a href="{{route('post.create')}}" class="float-right btn btn-primary">Tambah</a>
         </div>
         <div class="card-body">
         <div class="table-responsive">
@@ -16,26 +16,28 @@
             <thead>
                 <tr>
                 <th width="1">Id</th>
-                <th>Nama</th>
+                <th>Title</th>
+                <th>Category</th>
                 <th width="1">Edit</th>
                 <th width="1">Delete</th>
                 </tr>
             </thead>
         
             <tbody>
-                @foreach($category as $value)
+                @foreach($posts as $value)
                 <tr>
                     <td width="1">{{$value->id}}</td>
-                    <td>{{$value->nama}}</td>
+                    <td>{{$value->title}}</td>
+                    <td>{{$value->title}}</td>
                     <td>
                         <div class="btn-group">
-                            <a href="{{route('category.edit',$value->id)}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="{{route('post.edit',$value->id)}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                         </div>
                     </td>
 
                     <td>
                         <div class="btn-group">
-                            <form action="{{ route('category.destroy', $value->id)}}" method="post">
+                            <form action="{{ route('post.destroy', $value->id)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>

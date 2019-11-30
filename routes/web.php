@@ -11,20 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/base', function () {
-    return view('layouts.base');
-});
-
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('blog', 'PublicController@blog')->name('blog');
+Route::get('/', 'PublicController@landing')->name('landing');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('category', 'CategoryController');
+Route::resource('post', 'PostController');

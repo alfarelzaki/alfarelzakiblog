@@ -50,11 +50,11 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a role="button" class="btn btn-light" href="{{ url('blog') }}">Dashboard</a>
+                                <a role="button" class="btn btn-light" href="{{ route('post.create') }}">Dashboard</a>
                             </li>
 
                             <li class="nav-item">
-                                <a role="button" class="btn btn-light" href="{{ url('blog') }}">Blog</a>
+                                <a role="button" class="btn btn-light" href="{{ route('blog') }}">Blog</a>
                             </li>
 
                             <li class="nav-item dropdown">

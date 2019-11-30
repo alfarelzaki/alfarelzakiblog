@@ -25,7 +25,7 @@
 <body id="page-top">
 
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-      <a class="navbar-brand mr-1" href="index.html">Admin Dashboard</a>
+      <a class="navbar-brand mr-1" href="{{url('layouts.base')}}">Admin Dashboard</a>
 
       <button class="btn btn-link btn-sm text-black order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -56,11 +56,11 @@
                       @endif
                   @else
                       <li class="nav-item">
-                          <a role="button" class="btn btn-light" href="{{ url('blog') }}">Dashboard</a>
+                          <a role="button" class="btn btn-light" href="{{ route('post.create') }}">Dashboard</a>
                       </li>
 
                       <li class="nav-item">
-                          <a role="button" class="btn btn-light" href="{{ url('blog') }}">Blog</a>
+                          <a role="button" class="btn btn-light" href="{{ route('blog') }}">Blog</a>
                       </li>
 
                       <li class="nav-item dropdown">
@@ -91,13 +91,13 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav bg-light">
       <li class="nav-item">
-        <a role="button" class="btn btn-light nav-link @yield('write post')" href="tables.html">
+        <a role="button" class="btn btn-light nav-link @yield('write post')" href="{{ route('post.create')}}">
           <i class="fas fa-fw fa-pencil-alt text-dark"></i>
           <span class="text-dark">Write Post</span></a>
       </li>
 
       <li class="nav-item">
-        <a role="button" class="btn btn-light nav-link @yield('post')" href="tables.html">
+        <a role="button" class="btn btn-light nav-link @yield('post')" href="{{ route('post.index') }}">
           <i class="fas fa-fw fa-table text-dark"></i>
           <span class="text-dark">Posts</span></a>
       </li>
@@ -105,7 +105,7 @@
       <li class="nav-item">
         <a role="button" class="btn btn-light nav-link @yield('category')" href="{{route ('category.index')}}">
           <i class="fas fa-fw fa-table text-dark"></i>
-          <span class="text-dark">Kategori</span></a>
+          <span class="text-dark">Category</span></a>
       </li>
     </ul>
 

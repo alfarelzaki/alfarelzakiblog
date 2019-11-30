@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kategori;
+use App\Category;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +20,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Kategori::all();
-        return view('category.index')->with('kategori', $data);
+        $data = Category::all();
+        return view('category.index')->with('category', $data);
     }
 
     /**
@@ -38,15 +44,13 @@ class CategoryController extends Controller
     {
         $request->validate([
             'nama'=>'required',
-            'slug'=>'required',
         ]);
 
-        $kategori = new Kategori([
+        $category = new category([
             'nama' => $request->input('nama'),
-            'slug' => $request->input('slug')
         ]);
-        $kategori->save();
-        return redirect('kategori');
+        $category->save();
+        return redirect('category');
     }
 
     /**
@@ -68,8 +72,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $data = Kategori::where('id', '=', $id)->firstOrFail();
-        return view('category.edit')->with('kategori', $data);
+        $data = Category::where('id', '=', $id)->firstOrFail();
+        return view('category.edit')->with('category', $data);
     }
 
     /**
@@ -83,15 +87,13 @@ class CategoryController extends Controller
     {
         $request->validate([
             'nama'=>'required',
-            'slug'=>'required'
         ]);
 
         $data = [
             'nama' => $request->nama,
-            'slug' => $request->slug,
         ];
 
-        Kategori::where('id', $id)->update($data);
+        Category::where('id', $id)->update($data);
         return redirect('category');
     }
 
@@ -103,7 +105,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Kategori::where('id',$id)->delete();
+        Category::where('id',$id)->delete();
         return redirect('category');
     }
 }

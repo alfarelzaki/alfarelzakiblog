@@ -6,13 +6,8 @@
         <form action="{{route('category.store')}}" method="POST">
             @csrf
             <div class="form-group">
-                <label>Nama Kategori</label>
+                <label>Nama Category</label>
                 <input type="text" name="nama" class="form-control" placeholder="">
-            </div>
-
-            <div class="form-group">
-                <label>Slug</label>
-                <input type="text" name="slug" class="form-control" placeholder="">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
