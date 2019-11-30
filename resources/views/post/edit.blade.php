@@ -4,8 +4,8 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <form action="{{route('post.update', $post->id)}}" method="POST">
-            {{ @csrf_field() }}
-            {{ @method_field('PATCH') }}
+            @csrf
+            @method('PUT')
             <div class="form-group">
                 <label>Title</label>
                 <input type="text" name="title" class="form-control" placeholder="" value="{{$post->title}}">

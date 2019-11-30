@@ -9,6 +9,16 @@ class Comment extends Model
     protected $table = 'comments';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'messages',
+        'message', 'user_id', 'post_id',
     ];
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

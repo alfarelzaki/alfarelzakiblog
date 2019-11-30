@@ -9,7 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Dashboard</title>
+  <title>Admin Dashboard</title>
+  <link rel="icon" href="{{asset('images/logo.png')}}">
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -85,6 +86,7 @@
           </div>
       </div>
   </nav>
+  @include('layouts.partials._alerts')
 
   <div id="wrapper">
 
@@ -108,7 +110,6 @@
           <span class="text-dark">Category</span></a>
       </li>
     </ul>
-
     @yield('content')
     <!-- /.content-wrapper -->
 

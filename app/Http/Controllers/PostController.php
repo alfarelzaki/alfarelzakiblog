@@ -57,7 +57,7 @@ class PostController extends Controller
             'user_id' => Auth::id(),
         ]);
         $post->save();
-        return redirect('post');
+        return redirect('post')->with('success', 'Post berhasil dipublish');
     }
 
     /**
@@ -66,9 +66,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('post.show', compact('post'));
     }
 
     /**
@@ -106,7 +106,7 @@ class PostController extends Controller
         ];
 
         Post::where('id', $id)->update($data);
-        return redirect('post');
+        return redirect('post')->with('info', 'Post berhasil diedit');
     }
 
     /**
@@ -118,6 +118,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::where('id',$id)->delete();
-        return redirect('post');
+        return redirect('post')->with('danger', 'Post berhasil dihapus');
     }
 }

@@ -7,8 +7,9 @@
                 @foreach ($posts as $post)
                 <div class="card">
                     <div class="card-header">
-                    <span>{{$post->title}}</span>
-                    <span class="float-right">Dummy :)</span>
+                    <a href="{{route('post.show', $post)}}">{{$post->title}}</a>
+                    <span>by {{$post->user->name}}</span>
+                    <span class="float-right">in {{$post->category->nama}}</span>
                     </div>
 
                     <div class="card-body">
