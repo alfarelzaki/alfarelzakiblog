@@ -22,7 +22,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::where('user_id', Auth::id())->get();
+        if (Auth::user()->email == 'alfarell.zaki@gmail.com') {
+            $data = Post::all();
+        } else {
+            $data = Post::where('user_id', Auth::id())->get();
+        }
         return view('post.index')->with('posts', $data);
     }
 

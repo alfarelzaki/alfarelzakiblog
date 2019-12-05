@@ -28,7 +28,7 @@
                 <tr>
                     <td width="1">{{$value->id}}</td>
                     <td>{{$value->title}}</td>
-                    <td>{{$value->title}}</td>
+                    <td>{{$value->category->nama}}</td>
                     <td>
                         <div class="btn-group">
                             <a href="{{route('post.edit',$value->id)}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
