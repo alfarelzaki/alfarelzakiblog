@@ -88,7 +88,9 @@
 
                 <div class="links">
                     <a href="{{ route ('post.create')}}">Write Post</a>
+                    <a href="{{ route ('blog')}}">See Blog</a>
                     <a href="https://github.com/alfarelzaki" target="_blank">My GitHub</a>
+                    
                 </div>
             </div>
         </div>
